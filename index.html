@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WorkMark | Custom Branded Workwear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===== BASE ===== */
+*{
+    box-sizing:border-box;margin:0;padding:0
+}
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:70px
+}
+body{
+  margin:0 auto;
+}
+img{display:block;max-width:100%}
+a{
+    text-decoration: none;
+}
+
+
+
+/* ===== BUTTONS ===== */
+/* ===== BUTTONS ===== */
+.btn{
+    display:inline-block; 
+    padding:14px 30px;
+    border-radius:25px;
+    font-weight:600;
+    font-size:15px;
+    line-height:1.2;
+    white-space:nowrap;
+    border:2px solid transparent;
+    background:#0f6e9e;
+    color:#fff;
+    transition:transform .2s,background .2s,color .2s
+}
+.btn:hover{transform:translateY(-2px);background:#021a29}
+.btn-light{border-color:#fff;background:transparent}
+.btn-light:hover{background:#fff;color:#0B1F3A}
+.btn-sm{
+    padding:5px 10px;
+    font-size:15px;
+    border-radius: 17px;
+}
+/* ===== BUTTONS ===== */
+/* ===== BUTTONS ===== */
+
+
+/* ===== NAV (fixed, transparent at top, solid after scroll) ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;transition:background .3s,box-shadow .3s}
+.nav.scrolled,.nav.menu-open{background:#0B1F3A}
+.nav.scrolled{box-shadow:0 3px 14px rgba(0,0,0,.28)}
+
+.nav-inner{max-width:1100px;margin:0 auto;height:64px;padding:0 14px 0 20px;display:flex;align-items:center;gap:10px}
+.nav-logo{display:flex;align-items:center;gap:8px;margin-right:auto;font:700 22px/1 'Barlow Condensed',Arial,sans-serif;letter-spacing:.5px;color:#fff}
+.nav-logo img{height:40px;width:auto}
+.nav-logo b{color:#36b4f4}
+
+/* Burger sits on the right (after the Shop button) */
+.nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;background:none;border:0;cursor:pointer}
+.nav-burger span{height:3px;background:#fff;border-radius:2px;transition:transform .3s,opacity .25s}
+.nav-burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* Mobile dropdown menu (unchanged behaviour) */
+.nav-menu{position:absolute;top:64px;left:0;right:0;display:flex;flex-direction:column;padding:0 20px;background:#0B1F3A;max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s,padding .35s,visibility 0s linear .35s}
+.nav-menu.open{max-height:320px;padding:6px 20px 16px;visibility:visible;transition:max-height .35s,padding .35s,visibility 0s}
+.nav-menu a{padding:14px 0;color:#fff;border-bottom:1px solid #1E3556;transition:color .2s,padding-left .2s}
+.nav-menu a:last-child{border-bottom:0}
+.nav-menu a:hover{color:#36b4f4;padding-left:6px}
+
+@media(min-width:960px){
+  .nav-inner{gap:28px;padding:0 20px}
+  .nav-burger{display:none}
+  .nav-logo{font-size:32px;gap:10px}
+  .nav-logo img{height:42px}
+  .nav-menu{position:static;flex-direction:row;gap:30px;max-height:none;overflow:visible;visibility:visible;padding:0;background:none}
+  .nav-menu a{padding:0;border:0}
+  .nav-menu a:hover{padding-left:0}
+  /* order: logo | menu | Shop */
+  .nav-logo{margin-right:0}
+  .nav-menu{margin-left:auto}
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100svh;
+    display:flex;align-items:center;
+    padding:100px 20px 60px;
+    color:#fff;
+  background:linear-gradient(rgba(11,31,58,.55),rgba(11,31,58,.75)),url('thebg.webp') center/cover no-repeat #0B1F3A
+}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;text-align:center}
+.hero h1{margin:0 auto;font-size:clamp(42px,8vw,84px);color:#fff;text-wrap:balance}
+.hero p{max-width:46ch;margin:18px auto 30px;font-size:19px;color:#e6edf5}
+.hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+</style>
+</head>
+
+<body id="top">
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="WorkMark home">
+      <img src="H" alt="" width="36" height="36">
+      <span></span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu" aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Bulk pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#order" class="btn btn-sm nav-cta">Get A Quote</a>
+
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Workwear that carries your brand</h1>
+    <p>Custom shirts, caps and mugs. Design it online, order in bulk, and get it delivered.</p>
+    <div class="hero-btns">
+      <a href="#order" class="btn">Start designing</a>
+      <a href="#pricing" class="btn btn-light">See bulk pricing</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav'),
+      burger = document.getElementById('navBurger'),
+      menu = document.getElementById('navMenu');
+
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    burger.classList.toggle('open', open);
+    nav.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 10); }
+
+  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', function (e) { if (!nav.contains(e.target)) setMenu(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 960) setMenu(false); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
