@@ -601,8 +601,6 @@ a{
 
 
 
-
-
 <style>
   /* ===== THE WORK ===== */
   .the-work {
@@ -636,21 +634,21 @@ a{
     gap: clamp(20px, 4vw, 32px);
   }
 
-  /* A group = images tied together. The gap shows the dark background as a divider line */
+  /* A group = images tied together. The gap shows the background colour as a divider line */
   .work-group {
     display: grid;
     grid-template-columns: 1fr;  /* phones: stacked */
     gap: 1px;
     background: #ffffff;
-
     border-radius: 8px;
     overflow: hidden;
   }
 
   .work-item {
     position: relative;
-    margin: 0;
-    aspect-ratio: 14 / 8;       /* phones: CHANGE to 16 / 9 for even shorter images */
+    margin: 0;                   /* removes the browser's default figure margin */
+    padding: 0;
+    aspect-ratio: 16 / 8;
     overflow: hidden;
     background: #ddd;
   }
@@ -668,10 +666,10 @@ a{
     top: 10px;
     left: 10px;
     z-index: 2;
-    padding: 5px 12px;
+    padding: 15px 20px;
     border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.90rem;
+    font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     line-height: 1.2;
@@ -679,9 +677,14 @@ a{
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   }
 
+  /* Hides any badge that has no text, so you don't get an empty coloured pill */
+  .work-badge:empty {
+    display: none;
+  }
+
   /* Different colour per group */
-  .work-group--before .work-badge { background: #000000; } /* red */
-  .work-group--after  .work-badge { background: #ff6a00; } /* green */
+  .work-group--before .work-badge { background: #000000; } /* black */
+  .work-group--after  .work-badge { background: #ff6a00; } /* orange */
 
   /* Tablet and desktop: --cols on each group sets how many images sit side by side */
   @media (min-width: 640px) {
@@ -716,6 +719,25 @@ a{
       left: 8px;
       padding: 4px 10px;
       font-size: 0.7rem;
+    }
+  }
+
+  /* Phones only: smaller images + smaller badges (title stays where it was) */
+  @media (max-width: 639px) {
+    .work-row {
+      padding-left: 20px;        /* CHANGE: bigger = narrower images */
+      padding-right: 20px;
+    }
+
+    .work-item {
+      aspect-ratio: 16 / 8;      /* CHANGE to 16 / 7 for even shorter images */
+    }
+
+    .work-badge {
+      top: 8px;
+      left: 8px;
+      padding: 8px 14px;
+      font-size: 0.72rem;
     }
   }
 </style>
@@ -755,7 +777,6 @@ a{
 
   </div> <!-- end .work-row -->
 </section>
-
 
 
 
