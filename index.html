@@ -686,6 +686,31 @@ a{
   .work-group--before .work-badge { background: #000000; } /* black */
   .work-group--after  .work-badge { background: #ff6a00; } /* orange */
 
+  /* Badge colours for the centered pair (Before and After sit in the same group) */
+  .work-badge--before { background: #000000; } /* black */
+  .work-badge--after  { background: #ff6a00; } /* orange */
+
+  /* Centered Before + After pair below the 4 images */
+  .work-center {
+    width: 100%;
+    max-width: 960px;            /* CHANGE: bigger = wider images (each image = half of this) */
+    margin: clamp(20px, 4vw, 32px) auto 0;
+  }
+
+  /* Space between the centered pair + shorter height (tablet and desktop only) */
+  @media (min-width: 640px) {
+    .work-center .work-group {
+      gap: 20px;                 /* CHANGE: space between the two images */
+      background: transparent;
+      overflow: visible;
+    }
+
+    .work-center .work-item {
+      aspect-ratio: 2 / 1;       /* CHANGE: shorter than the old 3 / 2 */
+      border-radius: 8px;
+    }
+  }
+
   /* Tablet and desktop: --cols on each group sets how many images sit side by side */
   @media (min-width: 640px) {
     .work-group {
@@ -726,6 +751,12 @@ a{
   @media (max-width: 639px) {
     .work-row {
       padding-left: 20px;        /* CHANGE: bigger = narrower images */
+      padding-right: 20px;
+    }
+
+    /* Same side spacing for the centered pair */
+    .work-center {
+      padding-left: 20px;
       padding-right: 20px;
     }
 
@@ -776,9 +807,22 @@ a{
     </div>
 
   </div> <!-- end .work-row -->
+
+  <!-- CENTERED BEFORE + AFTER PAIR -->
+  <div class="work-center">
+    <div class="work-group" style="--cols: 2;">
+      <figure class="work-item">
+        <span class="work-badge work-badge--before">Before</span>
+        <img src="before3.webp" alt="Roof before - ADD DESCRIPTION" loading="lazy">
+      </figure>
+      <figure class="work-item">
+        <span class="work-badge work-badge--after">After</span>
+        <img src="after3.webp" alt="Roof after - ADD DESCRIPTION" loading="lazy">
+      </figure>
+    </div>
+  </div>
+
 </section>
-
-
 
 
 
