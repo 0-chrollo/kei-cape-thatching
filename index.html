@@ -46,7 +46,7 @@ a{
 .btn-light{border-color:#fff;background:transparent}
 .btn-light:hover{background:#fff;color:#0B1F3A}
 .btn-sm{
-    background-color: rgb(255, 255, 255);
+    background-color: #f7f7f7;
     padding:5px 10px;
     font-size:15px;
     color:black;
@@ -182,22 +182,193 @@ a{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section>
 
-    <p>Custom shirts, caps and mugs. Design it online, order in bulk, and get it delivered.</p>
+   
+      <style>
+  
+    
+        .about {
+          margin: 0px auto;
+          padding: 80px 24px;
+          background: #ffffff;
+        }
+        .about__inner {
+          max-width: 1200px;
+          margin: 0px auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 56px;
+          align-items: center;
+        }
+    
+        /* Column 1 */
+        .about__brand {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+        .about__logo {
+          width: 8rem;;
+          height: auto;
+          object-fit: contain;
+        }
+        .about__brand-name {
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: #5a3e1b;
+        }
+        .about__title {
+          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+          line-height: 1.2;
+          margin: 0 0 20px;
+          color: #2b2116;
+        }
+        .about__text {
+          font-size: 1.05rem;
+          line-height: 1.7;
+          color: #4a4036;
+          margin: 0 0 28px;
+        }
+        .about__list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 32px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px 24px;
+        }
+        .about__list li {
+          position: relative;
+          padding-left: 28px;
+          font-size: 0.98rem;
+          color: #2b2116;
+        }
+        .about__list li::before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 1.5px solid #a9742b;
+          color: #a9742b;
+          font-size: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .about__btn {
+          display: inline-block;
+          padding: 10px 20px;
+          background: rgb(255, 119, 0);
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          border-radius: 24px;
+          transition: background 0.2s ease;
+        }
+        .about__btn:hover { background: #7a5528; }
+        .about__btn:focus-visible { outline: 3px solid #a9742b; outline-offset: 3px; }
+    
+        /* Column 2 */
+        .about__gallery {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .about__gallery img {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 5px;
+          display: block;
+          background: #ffffff;
+        }
+    
+        /* Mobile */
+        @media (max-width: 860px) {
+          .about { padding: 26px 20px; }
+          .about__inner {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+        }
+        @media (max-width: 480px) {
+          .about__list { grid-template-columns: 1fr; }
+        }
+      </style>
 
-    <br>
-
-    <br>
-
-    <br>
-
-    <br>
-    <p>Custom shirts, caps and mugs. Design it online, order in bulk, and get it delivered.</p>
-
-    <br>
-
-    <br>
+    
+      <section class="about" id="about">
+        <div class="about__inner">
+    
+          <!-- COLUMN 1: logo, name, text -->
+          <div class="about__content">
+            <div class="about__brand">
+              <img src="keilogo.webp" alt="Kei Thatch &amp; Decking logo" class="about__logo">
+              <span class="about__brand-name">Kei Thatch &amp; Decking</span>
+            </div>
+    
+            <h2 class="about__title">Quality thatch and decking, built to last for your property</h2>
+    
+            <p class="about__text">
+              We design and build thatch roofs and timber decks that add character, comfort and
+              lasting value to your home or business. From the first site visit to the final
+              finishing touches, you get clear quotes, skilled workmanship and a team that
+              stands behind its work.
+            </p>
+    
+            <ul class="about__list">
+              <li>Custom thatch roof design</li>
+              <li>Quality timber decking</li>
+              <li>Skilled, experienced installers</li>
+              <li>Clear quotes and timelines</li>
+            </ul>
+    
+            <a href="#contact" class="about__btn">Get a free quote &rarr;</a>
+          </div>
+    
+          <!-- COLUMN 2: 2x2 image grid -->
+          <div class="about__gallery">
+            <img src="thebg.webp" alt="DESCRIBE IMAGE 1">
+            <img src="thebg.webp" alt="DESCRIBE IMAGE 2">
+            <img src="thebg.webp" alt="DESCRIBE IMAGE 3">
+            <img src="thebg.webp" alt="DESCRIBE IMAGE 4">
+          </div>
+    
+        </div>
+      </section>
+    
+   
 
 </section>
 
