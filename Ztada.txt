@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Work</title>
+
+  <style>
+    /* ===== THE WORK ===== */
+    .the-work {
+      width: 100%;
+      max-width: 1200px;           /* CHANGE: smaller = smaller images on desktop */
+      margin: 0px auto;
+      padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 24px);
+      box-sizing: border-box;
+    }
+
+    .the-work *,
+    .the-work *::before,
+    .the-work *::after {
+      box-sizing: border-box;
+    }
+
+    .the-work__title {
+      text-align: left;
+      margin: 0 0 clamp(20px, 3vw, 32px);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #222;
+    }
+
+    /* Wrapper that holds the Before and After groups */
+    .work-row {
+      display: grid;
+      grid-template-columns: 1fr;  /* Before above After */
+      gap: clamp(20px, 4vw, 32px);
+    }
+
+    /* A group = images tied together. The gap shows the dark background as a divider line */
+    .work-group {
+      display: grid;
+      grid-template-columns: 1fr;  /* phones: stacked */
+      gap: 2px;
+      background: #222;
+      border: 2px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .work-item {
+      position: relative;
+      margin: 0;
+      aspect-ratio: 16 / 10;       /* phones: CHANGE to 16 / 9 for even shorter images */
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .work-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Badge top-left */
+    .work-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Different colour per group */
+    .work-group--before .work-badge { background: #c0392b; } /* red */
+    .work-group--after  .work-badge { background: #27ae60; } /* green */
+
+    /* Tablet and desktop: --cols on each group sets how many images sit side by side */
+    @media (min-width: 640px) {
+      .work-group {
+        grid-template-columns: repeat(var(--cols, 2), 1fr);
+      }
+
+      .work-item {
+        aspect-ratio: 3 / 2;
+      }
+
+      .work-badge {
+        top: 14px;
+        left: 14px;
+        padding: 6px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Desktop: Before and After side by side (only when the wrapper has the work-row--inline class) */
+    @media (min-width: 1024px) {
+      .work-row--inline {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* If you use 4 or 6 columns, shrink the badge so it fits the smaller images */
+    @media (min-width: 640px) {
+      .work-group[style*="--cols: 4"] .work-badge,
+      .work-group[style*="--cols: 6"] .work-badge {
+        top: 8px;
+        left: 8px;
+        padding: 4px 10px;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="the-work" id="the-work">
+    <h2 class="the-work__title">Crafted Roofs, Lasting Results</h2>
+
+    <!-- LAYOUT SWITCH:
+         "work-row work-row--inline" = Before and After side by side on desktop (4 in one line)
+         "work-row"                  = Before on top, After below (3 above, 3 below if --cols: 3) -->
+    <div class="work-row work-row--inline">
+
+      <!-- BEFORE GROUP -->
+      <div class="work-group work-group--before" style="--cols: 2;">
+        <figure class="work-item">
+          <span class="work-badge">Before</span>
+          <img src="IMAGE-PATH-BEFORE-1.jpg" alt="Roof before - ADD DESCRIPTION" loading="lazy">
+        </figure>
+        <figure class="work-item">
+          <span class="work-badge">Before</span>
+          <img src="IMAGE-PATH-BEFORE-2.jpg" alt="Roof before - ADD DESCRIPTION" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- AFTER GROUP -->
+      <div class="work-group work-group--after" style="--cols: 2;">
+        <figure class="work-item">
+          <span class="work-badge">After</span>
+          <img src="IMAGE-PATH-AFTER-1.jpg" alt="Roof after - ADD DESCRIPTION" loading="lazy">
+        </figure>
+        <figure class="work-item">
+          <span class="work-badge">After</span>
+          <img src="IMAGE-PATH-AFTER-2.jpg" alt="Roof after - ADD DESCRIPTION" loading="lazy">
+        </figure>
+      </div>
+
+    </div> <!-- end .work-row -->
+  </section>
+
+</body>
+</html>
