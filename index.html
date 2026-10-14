@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WorkMark | Custom Branded Workwear</title>
+<title>WorkMark | Custom Branded Workwear </title>
+<link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -166,6 +167,102 @@ a{
   onScroll();
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="video-image-split">
+    <!-- VIDEO COL - with WEBP THUMBNAIL -->
+    <div class="video-col">
+      <video id="myVideo" autoplay muted loop playsinline preload="metadata" poster="kthumbnail.webp">
+        <source src="https://files.catbox.moe/30x9yj.mp4" type="video/mp4">
+      </video>
+      <div class="custom-controls">
+        <button id="playBtn" aria-label="Play Pause"><i class="fa-solid fa-pause"></i></button>
+        <button id="muteBtn" aria-label="Mute Unmute"><i class="fa-solid fa-volume-xmark"></i></button>
+      </div>
+    </div>
+  
+    <!-- IMAGE COL - DESKTOP BALANCE -->
+    <div class="image-col">
+      <img src="colu2.webp" alt="Side image" loading="lazy">
+    </div>
+  </div>
+  
+  <style>
+  .video-image-split{
+    display:flex; gap:16px;
+    max-width:1300px; margin:0 auto; padding:5px;
+  }
+  .video-col, .image-col{
+    flex:1; position:relative; border-radius:4px;
+    overflow:hidden; background:#000;
+    aspect-ratio:16/9;
+  }
+  .video-col video, .image-col img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .custom-controls{
+    position:absolute; bottom:12px; right:12px;
+    display:flex; gap:8px; z-index:2;
+  }
+  .custom-controls button{
+    width:44px; height:44px; border-radius:50%;
+    background:#ff6a00; border:2px solid #ffffff;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .custom-controls i{ font-size:16px; color:#000; }
+  .custom-controls button:hover{ background:#000; }
+  .custom-controls button:hover i{ color:#ff6a00; }
+  
+  @media(max-width:768px){
+    .video-image-split{ flex-direction:column;
+    }
+    .video-col{ height:65vh; aspect-ratio:auto; }
+    .image-col{ height:40vh; aspect-ratio:auto;
+        display:none; }
+  }
+  </style>
+  
+  <script>
+  const v=document.getElementById('myVideo');
+  const playBtn=document.getElementById('playBtn');
+  const muteBtn=document.getElementById('muteBtn');
+  
+  v.muted=true; v.play().catch(()=>{});
+  
+  playBtn.onclick=()=>{
+    if(v.paused){
+      v.play();
+      playBtn.innerHTML='<i class="fa-solid fa-pause"></i>';
+    } else {
+      v.pause();
+      playBtn.innerHTML='<i class="fa-solid fa-play"></i>';
+    }
+  }
+  muteBtn.onclick=()=>{
+    v.muted=!v.muted;
+    muteBtn.innerHTML=v.muted
+      ? '<i class="fa-solid fa-volume-xmark"></i>'
+      : '<i class="fa-solid fa-volume-high"></i>';
+  }
+  </script>
+
+
+
+
+
+
+
 
 
 
