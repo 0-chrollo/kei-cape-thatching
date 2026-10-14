@@ -1,0 +1,272 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rare {
+    font-family: Arial, sans-serif;
+    color: #333333;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    margin: 0px auto;
+    padding: 5px 0; /* top/bottom only, no side padding */
+    width: 100%;
+}
+
+.rare .services-section {
+    width: 100%;
+    max-width: none;
+    margin: 0px auto;
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.rare .services-header {
+    text-align: left;
+    margin: 0 0 45px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 20px;
+}
+
+.rare .services-header h2 {
+    font-size: 1.60rem;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.rare .services-header p {
+    font-size: 1rem;
+    color: #666666;
+    max-width: 700px;
+    margin: 0;
+}
+
+/* MOBILE: single column list */
+.rare .services-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.rare .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.rare .service-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.rare .service-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background-color: #ff6a00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.rare .service-item:hover .service-icon {
+    background-color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
+.rare .service-content {
+    flex-grow: 1;
+}
+
+.rare .service-content h3 {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+    font-weight: 700;
+}
+
+.rare .service-content p {
+    font-size: 0.95rem;
+    color: #555555;
+    margin: 0;
+}
+
+/* ANIMATION (only active when JS is running) */
+.rare.js .service-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: var(--delay, 0s);
+}
+
+.rare.js .service-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rare.js .service-item .service-icon {
+    transform: scale(0.6);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--delay, 0s) + 0.15s),
+                background-color 0.3s ease;
+}
+
+.rare.js .service-item.visible .service-icon {
+    transform: scale(1);
+}
+
+.rare.js .service-item.visible:hover .service-icon {
+    transform: translateY(-3px);
+    transition-delay: 0s;
+}
+
+/* TABLET: 2 columns */
+@media (min-width: 700px) {
+    .rare .services-section {
+        padding: 50px 30px;
+    }
+
+    .rare .services-header h2 {
+        font-size: 2rem;
+    }
+
+    .rare .services-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+    }
+
+    .rare .service-item,
+    .rare .service-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+/* DESKTOP: all 4 in one horizontal row */
+@media (min-width: 1024px) {
+    .rare .services-section {
+        padding: 60px 40px;
+    }
+
+    .rare .services-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .rare .service-item {
+        flex-direction: column;
+        gap: 18px;
+        padding: 25px 20px;
+        border: 1px solid #eaeaea;
+        border-radius: 4px;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .rare .service-item:last-child {
+        border: 1px solid #eaeaea;
+        padding: 25px 20px;
+    }
+
+    .rare .service-item:hover {
+        border-color: #cfcfcf;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .rare .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .rare.js .service-item,
+    .rare.js .service-item .service-icon {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
