@@ -329,7 +329,7 @@ a{
 
   .footer__brand p {
     color: #bababa;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     max-width: 220px;
     margin-bottom: 14px;
@@ -377,7 +377,7 @@ a{
   /* Nav Columns */
   .footer__col h4 {
     color:  #f86d09;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -388,7 +388,7 @@ a{
     display: block;
     color: #bbbbbb;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 9px;
     transition: color 0.2s;
   }
@@ -435,3 +435,116 @@ a{
       grid-column: 1 / -1;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* ===== FLOATING BUTTONS (WhatsApp + Back to top) ===== */
+.both {
+  position: fixed;
+  right: 20px;                 /* CHANGE: distance from the right edge */
+  bottom: 20px;                /* CHANGE: distance from the bottom edge */
+  z-index: 999;
+  display: flex;
+  flex-direction: column;      /* WhatsApp on top, back-to-top below */
+  align-items: center;
+  gap: 12px;
+}
+
+.both a,
+.both button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.2s, opacity 0.3s, visibility 0.3s;
+}
+
+/* WhatsApp button */
+.whatsapp-btn {
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  font-size: 1.9rem;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5a;
+  transform: scale(1.08);
+}
+
+/* Back-to-top button (hidden until the visitor scrolls down) */
+.back-to-top {
+  width: 46px;
+  height: 46px;
+border: 3px solid black;
+  background: #f86d09;         /* CHANGE to your brand colour */
+  font-size: 1.05rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Slightly smaller on phones */
+@media (max-width: 639px) {
+  .both {
+    right: 14px;
+    bottom: 14px;
+    gap: 9px;
+  }
+
+  .whatsapp-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.7rem;
+  }
+
+  .back-to-top {
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -68,7 +68,7 @@
 .nav-menu.open{max-height:320px;padding:6px 20px 16px;visibility:visible;transition:max-height .35s,padding .35s,visibility 0s}
 .nav-menu a{padding:14px 0;color:#fff;border-bottom:1px solid rgba(255, 119, 0, 0.064);transition:color .2s,padding-left .2s}
 .nav-menu a:last-child{border-bottom:0}
-.nav-menu a:hover{color:#36b4f4;padding-left:6px}
+.nav-menu a:hover{color:#ff6a00;padding-left:6px}
 
 @media(min-width:960px){
   .nav-inner{gap:28px;padding:0 20px}
@@ -857,103 +857,11 @@
 
 
 
-
-<style>
-  /* ===== FLOATING BUTTONS (WhatsApp + Back to top) ===== */
-.both {
-  position: fixed;
-  right: 20px;                 /* CHANGE: distance from the right edge */
-  bottom: 20px;                /* CHANGE: distance from the bottom edge */
-  z-index: 999;
-  display: flex;
-  flex-direction: column;      /* WhatsApp on top, back-to-top below */
-  align-items: center;
-  gap: 12px;
-}
-
-.both a,
-.both button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s, background 0.2s, opacity 0.3s, visibility 0.3s;
-}
-
-/* WhatsApp button */
-.whatsapp-btn {
-  width: 58px;
-  height: 58px;
-  background: #25d366;
-  font-size: 1.9rem;
-}
-
-.whatsapp-btn:hover {
-  background: #1ebe5a;
-  transform: scale(1.08);
-}
-
-/* Back-to-top button (hidden until the visitor scrolls down) */
-.back-to-top {
-  width: 46px;
-  height: 46px;
-border: 3px solid black;
-  background: #f86d09;         /* CHANGE to your brand colour */
-  font-size: 1.05rem;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.back-to-top.is-visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.back-to-top:hover {
-  background: #000;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Slightly smaller on phones */
-@media (max-width: 639px) {
-  .both {
-    right: 14px;
-    bottom: 14px;
-    gap: 9px;
-  }
-
-  .whatsapp-btn {
-    width: 52px;
-    height: 52px;
-    font-size: 1.7rem;
-  }
-
-  .back-to-top {
-    width: 42px;
-    height: 42px;
-  }
-}
-</style>
-
-
-
-
-
-
-
 <div class="both">
 
   <!-- WhatsApp widget -->
   <a class="whatsapp-btn"
-     href="https://wa.me/27XXXXXXXXX?text=Hi%2C%20I%27d%20like%20a%20quote"
+     href="https://wa.me/27726155868?text=Hi%2C%20I%27d%20like%20a%20quote"
      target="_blank"
      rel="noopener"
      aria-label="Chat with us on WhatsApp">
@@ -967,24 +875,6 @@ html {
 
 </div>
 
-
-<script>
-  (function () {
-    var btn = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 600) {          // CHANGE: how far down before the arrow appears
-        btn.classList.add('is-visible');
-      } else {
-        btn.classList.remove('is-visible');
-      }
-    });
-
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
-</script>
 
 
 
@@ -1046,7 +936,7 @@ html {
     }
 
     .cta-col h2 {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 300;
       margin: 0 0 12px;
     }
@@ -1056,7 +946,7 @@ html {
     }
 
     .cta-col p {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.6;
       margin: 0 0 20px;
       max-width: 440px;
