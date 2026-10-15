@@ -1138,7 +1138,6 @@ html {
 
 
   <!-- Your other page content / header goes here -->
-
   <!-- Bottom CTA section -->
   <section class="cta-section">
     <div class="cta-container">
@@ -1167,6 +1166,261 @@ html {
   <!-- Your footer goes here -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+
+  /* ─── Footer Wrapper ─────────────────────────────────────── */
+  .footer {
+    background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(20, 22, 21));
+    color: #cdd3e0;
+    padding: 2.5rem 2rem 1.5rem;
+  }
+
+  /* ─── Top Section (Brand + Nav Columns) ─────────────────── */
+  .footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Brand */
+  .footer__brand h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .footer__brand p {
+    color: #bababa;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 220px;
+    margin-bottom: 14px;
+  }
+
+  /* Social Icons */
+  .footer__social {
+    
+    display: flex;
+    gap: 9px;
+  }
+
+  .footer__social-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color:#f86d09; 
+  }
+
+  .footer__social-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: #f86d09; 
+    color:#f86d09; 
+  }
+
+  .footer__social-icon--facebook  {
+     background-color: #f86d09; 
+     text-decoration: none;
+     color: white;
+    }
+
+  .footer__social-icon--instagram { background-color: #c13584;
+    text-decoration: none;
+     color: white; }
+  .footer__social-icon--whatsapp  { background-color: #108f0a;
+  
+    text-decoration: none;
+     color: white; }
+
+  /* Nav Columns */
+  .footer__col h4 {
+    color:  #f86d09;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .footer__col a {
+    display: block;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 9px;
+    transition: color 0.2s;
+  }
+
+  .footer__col a:hover {
+    color: #ffffff;
+  }
+
+  /* ─── Bottom Bar ─────────────────────────────────────────── */
+  .footer__bottom {
+    border-top: 0.5px solid #838383;
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+
+  .footer__bottom-links {
+    margin-bottom: 6px;
+  }
+
+  .footer__bottom-links a {
+    color: #5a6478;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 8px;
+    transition: color 0.2s;
+  }
+
+  .footer__bottom-links a:hover {
+    color: #8a95aa;
+  }
+
+  .footer__copyright {
+    color: #bbbbbb;
+    font-size: 12px;
+  }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .footer__top {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  </style>
+
+
+
+
+<footer class="footer">
+
+  <!-- Top: Brand + Nav Columns -->
+  <div class="footer__top">
+
+    <!-- Brand -->
+    <div class="footer__brand">
+      <h2>Kei Cape Thatching &amp; Decking</h2>
+      <p>Specialists in thatching, decking and painting, bringing natural beauty and lasting quality to every project across the Eastern Cape.</p>
+      <div class="footer__social">
+        <div class="socials">
+          <a href="https://wa.me/27726155868" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" style="color: #f86d09;"></i>
+          </a>
+          <a href="mailto:unathilayini@gmail.com" class="social-link" aria-label="Email">
+            <i class="fa-solid fa-envelope" style="color: #f86d09;"></i>
+          </a>
+          <a href="FACEBOOK-PAGE-URL" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fa-brands fa-facebook-f" style="color: #f86d09;"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="footer__col">
+      <h4>Services</h4>
+      <a href="services.html">Thatching</a>
+      <a href="services.html">Lapas &amp; Entertainment Areas</a>
+      <a href="services.html">Timber Decking</a>
+      <a href="services.html">Painting</a>
+      <a href="services.html">Roof Conversions</a>
+    </div>
+
+    <!-- Company -->
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Our Services</a>
+      <a href="PROJECTS-PAGE-URL">Our Work</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="tel:0726155868">072 615 5868</a>
+      <a href="mailto:unathilayini@gmail.com">unathilayini@gmail.com</a>
+      <a href="#">Eastern Cape, South Africa</a>
+    </div>
+
+  </div>
+  <!-- /footer__top -->
+
+  <!-- Bottom Bar -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-links">
+    </div>
+    <span class="footer__copyright">&copy; 2026 Kei Cape Thatching &amp; Decking. All rights reserved. Designed by Unitwebs</span>
+  </div>
+  <!-- /footer__bottom -->
+
+</footer>
 
 
 </body>
