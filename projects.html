@@ -165,6 +165,307 @@
 
 
 
+  <style>
+
+  
+    /* ===== Projects section ===== */
+    .projects {
+      max-width: 1200px;
+      margin: 0px auto;
+      padding: 40px 16px;
+    }
+    .projects__intro {
+      max-width: 640px;
+      margin: 0 0 32px;
+      padding-left: 16px;
+      border-left: 6px solid #fd8733;
+      text-align: left;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    .projects__intro strong {
+      color: #222;
+    }
+  
+    /* Each project block (no card, just spacing) */
+    .project {
+      margin-bottom: 20px;
+    }
+    .project__title {
+      margin: 0 0 16px;
+    }
+  
+    /* 3 columns on mobile/small screens */
+    .project__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .project__grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: zoom-in;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .project__grid img:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+  
+    /* 4 columns on desktop */
+    @media (min-width: 992px) {
+      .project__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+    }
+  
+    /* ===== Lightbox (image viewer) ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox__img {
+      max-width: 92vw;
+      max-height: 80vh;
+      border-radius: 6px;
+      user-select: none;
+    }
+    .lightbox__close,
+    .lightbox__nav {
+      position: absolute;
+      background: rgba(40, 40, 40, 0.85);
+      color: #fff;
+      border: 0;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__close { top: 16px; right: 16px; font-size: 28px; }
+    .lightbox__prev { left: 12px; top: 50%; transform: translateY(-50%); }
+    .lightbox__next { right: 12px; top: 50%; transform: translateY(-50%); }
+    .lightbox__count {
+      position: absolute;
+      bottom: 18px;
+      color: #fff;
+      font-size: 14px;
+    }
+    
+  </style>
+
+  
+  <section class="projects" id="projects">
+    <p class="projects__intro">
+      Each project below is shown in the order the work happened. The first photos
+      show the roof <strong class="ru">before</strong> we started, and the photos that follow
+      show the finished roof <strong class="ru">after</strong> the work was completed. Tap any
+      photo to view it full size.
+    </p>
+  
+    <!-- ===== PROJECT 1 ===== -->
+    <div class="project">
+      <h3 class="project__title">Roofing</h3>
+      <div class="project__grid">
+        <!-- Placeholder images for preview. Replace each src with your own image path. -->
+        <img src="keibg.webp" alt="Project 1 photo 1" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1b/600/600" alt="Project 1 photo 2" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1c/600/600" alt="Project 1 photo 3" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1d/600/600" alt="Project 1 photo 4" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1e/600/600" alt="Project 1 photo 5" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1f/600/600" alt="Project 1 photo 6" loading="lazy">
+        <img src="https://picsum.photos/seed/roof1g/600/600" alt="Project 1 photo 7" loading="lazy">
+      </div>
+    </div>
+  
+    <!-- ===== PROJECT 2 ===== -->
+    <div class="project">
+      <h3 class="project__title">PROJECT 2 NAME / LOCATION</h3>
+      <div class="project__grid">
+        <img src="https://picsum.photos/seed/roof2a/600/600" alt="Project 2 photo 1" loading="lazy">
+        <img src="https://picsum.photos/seed/roof2b/600/600" alt="Project 2 photo 2" loading="lazy">
+        <img src="https://picsum.photos/seed/roof2c/600/600" alt="Project 2 photo 3" loading="lazy">
+        <img src="https://picsum.photos/seed/roof2d/600/600" alt="Project 2 photo 4" loading="lazy">
+        <img src="https://picsum.photos/seed/roof2e/600/600" alt="Project 2 photo 5" loading="lazy">
+        <img src="https://picsum.photos/seed/roof2f/600/600" alt="Project 2 photo 6" loading="lazy">
+      </div>
+    </div>
+  
+    <!-- To add PROJECT 3: copy one whole <div class="project"> ... </div> block
+         and paste it right here, then change the title and image paths. -->
+  </section>
+  
+  <script>
+  // ===== Project gallery lightbox =====
+  (function () {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = `
+      <button class="lightbox__close" aria-label="Close">&times;</button>
+      <button class="lightbox__nav lightbox__prev" aria-label="Previous">&#10094;</button>
+      <img class="lightbox__img" alt="">
+      <button class="lightbox__nav lightbox__next" aria-label="Next">&#10095;</button>
+      <div class="lightbox__count"></div>`;
+    document.body.appendChild(lb);
+  
+    const bigImg = lb.querySelector('.lightbox__img');
+    const count = lb.querySelector('.lightbox__count');
+    let imgs = [];
+    let index = 0;
+  
+    function show(n) {
+      index = (n + imgs.length) % imgs.length;
+      const el = imgs[index];
+      bigImg.src = el.dataset.full || el.src;
+      bigImg.alt = el.alt;
+      count.textContent = (index + 1) + ' / ' + imgs.length;
+    }
+    function open(n) {
+      show(n);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  
+    // Works for any project, including ones you add later
+    document.addEventListener('click', function (e) {
+      const img = e.target.closest('.project__grid img');
+      if (!img) return;
+      imgs = Array.from(img.closest('.project__grid').querySelectorAll('img'));
+      open(imgs.indexOf(img));
+    });
+  
+    lb.querySelector('.lightbox__close').addEventListener('click', close);
+    lb.querySelector('.lightbox__prev').addEventListener('click', () => show(index - 1));
+    lb.querySelector('.lightbox__next').addEventListener('click', () => show(index + 1));
+  
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+  
+    // Swipe left/right on phones
+    let startX = 0;
+    lb.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) show(diff > 0 ? index - 1 : index + 1);
+    });
+  })();
+  </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+
+    <!-- Top: Brand + Nav Columns -->
+    <div class="footer__top">
+  
+      <!-- Brand -->
+      <div class="footer__brand">
+        <h2>Kei Cape Thatching &amp; Decking</h2>
+        <p>Specialists in thatching, decking and painting, bringing natural beauty and lasting quality to every project across the Eastern Cape.</p>
+        <div class="footer__social">
+          <div class="socials">
+            <a href="https://wa.me/27726155868" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp" style="color: #f86d09;"></i>
+            </a>
+            <a href="mailto:unathilayini@gmail.com" class="social-link" aria-label="Email">
+              <i class="fa-solid fa-envelope" style="color: #f86d09;"></i>
+            </a>
+            <a href="FACEBOOK-PAGE-URL" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <i class="fa-brands fa-facebook-f" style="color: #f86d09;"></i>
+            </a>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- Services -->
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="#">Thatching</a>
+        <a href="#">Lapas &amp; Entertainment Areas</a>
+        <a href="#">Timber Decking</a>
+        <a href="#">Painting</a>
+        <a href="#">Roof Conversions</a>
+      </div>
+  
+      <!-- Company -->
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Our Work</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+  
+      <!-- Contact -->
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="tel:0726155868">072 615 5868</a>
+        <a href="mailto:unathilayini@gmail.com">unathilayini@gmail.com</a>
+        <a href="#">Eastern Cape, South Africa</a>
+      </div>
+  
+    </div>
+    <!-- /footer__top -->
+  
+    <!-- Bottom Bar -->
+    <div class="footer__bottom">
+      <div class="footer__bottom-links">
+      </div>
+      <span class="footer__copyright">&copy; 2026 Kei Cape Thatching &amp; Decking. All rights reserved. Designed by Unitwebs</span>
+    </div>
+    <!-- /footer__bottom -->
+  
+  </footer>
+  
+
 
 
 
