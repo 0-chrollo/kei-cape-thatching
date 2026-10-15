@@ -11,23 +11,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===== BASE ===== */
-*{
-    box-sizing:border-box;margin:0;padding:0
-}
-html{
-    scroll-behavior:smooth;
-    scroll-padding-top:70px
-}
-body{
-  margin:0 auto;
-}
-img{display:block;max-width:100%}
-a{
-    text-decoration: none;
-}
-
-
 
 /* ===== BUTTONS ===== */
 /* ===== BUTTONS ===== */
@@ -124,13 +107,12 @@ a{
     </a>
 
     <nav class="nav-menu" id="navMenu" aria-label="Main">
-      <a href="#products">Products</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Bulk pricing</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
 
-    <a href="#order" class="btn btn-sm nav-cta">Get A Quote <i class="fa-solid fa-angles-right"></i></a>
+    <a href="contact.html" class="btn btn-sm nav-cta">Get A Quote <i class="fa-solid fa-angles-right"></i></a>
 
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
@@ -143,35 +125,12 @@ a{
     <h1>Strength in every Roof</h1>
     <p>Thatching, decking and roof conversions across the Eastern Cape. Built to last, built with care.</p>
     <div class="hero-btns">
-        <a href="https://wa.me/27726155868?text=Hi%20Kei%20Cape%20Thatching%20%26%20Decking%2C%20I%27d%20like%20a%20quote" target="_blank" rel="noopener" class="btn">Get A Quote <i class="fa-solid fa-angles-right"></i></a>
-        <a href="#our-work" class="btn btn-light">See Our Work</a> </div>
+        <a href="contact.html" target="_blank" rel="noopener" class="btn">Get A Quote <i class="fa-solid fa-angles-right"></i></a>
+        <a href="projects.html" class="btn btn-light">See Our Work</a> </div>
   </div>
 </section>
 
-<script>
-(function () {
-  var nav = document.getElementById('nav'),
-      burger = document.getElementById('navBurger'),
-      menu = document.getElementById('navMenu');
 
-  function setMenu(open) {
-    menu.classList.toggle('open', open);
-    burger.classList.toggle('open', open);
-    nav.classList.toggle('menu-open', open);
-    burger.setAttribute('aria-expanded', open);
-    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 10); }
-
-  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
-  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-  document.addEventListener('click', function (e) { if (!nav.contains(e.target)) setMenu(false); });
-  window.addEventListener('resize', function () { if (window.innerWidth >= 960) setMenu(false); });
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-</script>
 
 
 
@@ -1215,145 +1174,6 @@ html {
 
 
 
-<style>
-
-
-
-
-  /* ─── Footer Wrapper ─────────────────────────────────────── */
-  .footer {
-    background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(20, 22, 21));
-    color: #cdd3e0;
-    padding: 2.5rem 2rem 1.5rem;
-  }
-
-  /* ─── Top Section (Brand + Nav Columns) ─────────────────── */
-  .footer__top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Brand */
-  .footer__brand h2 {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-
-  .footer__brand p {
-    color: #bababa;
-    font-size: 13px;
-    line-height: 1.6;
-    max-width: 220px;
-    margin-bottom: 14px;
-  }
-
-  /* Social Icons */
-  .footer__social {
-    
-    display: flex;
-    gap: 9px;
-  }
-
-  .footer__social-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color:#f86d09; 
-  }
-
-  .footer__social-icon svg {
-    width: 14px;
-    height: 14px;
-    fill: #f86d09; 
-    color:#f86d09; 
-  }
-
-  .footer__social-icon--facebook  {
-     background-color: #f86d09; 
-     text-decoration: none;
-     color: white;
-    }
-
-  .footer__social-icon--instagram { background-color: #c13584;
-    text-decoration: none;
-     color: white; }
-  .footer__social-icon--whatsapp  { background-color: #108f0a;
-  
-    text-decoration: none;
-     color: white; }
-
-  /* Nav Columns */
-  .footer__col h4 {
-    color:  #f86d09;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .footer__col a {
-    display: block;
-    color: #bbbbbb;
-    text-decoration: none;
-    font-size: 13px;
-    margin-bottom: 9px;
-    transition: color 0.2s;
-  }
-
-  .footer__col a:hover {
-    color: #ffffff;
-  }
-
-  /* ─── Bottom Bar ─────────────────────────────────────────── */
-  .footer__bottom {
-    border-top: 0.5px solid #838383;
-    padding-top: 1.25rem;
-    text-align: center;
-  }
-
-  .footer__bottom-links {
-    margin-bottom: 6px;
-  }
-
-  .footer__bottom-links a {
-    color: #5a6478;
-    text-decoration: none;
-    font-size: 12px;
-    margin: 0 8px;
-    transition: color 0.2s;
-  }
-
-  .footer__bottom-links a:hover {
-    color: #8a95aa;
-  }
-
-  .footer__copyright {
-    color: #bbbbbb;
-    font-size: 12px;
-  }
-
-  /* ─── Responsive ─────────────────────────────────────────── */
-  @media (max-width: 600px) {
-    .footer__top {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .footer__brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  </style>
-
 
 
 
@@ -1420,6 +1240,12 @@ html {
   <!-- /footer__bottom -->
 
 </footer>
+
+
+
+<script src="scripts.js">
+
+</script>
 
 
 </body>
